@@ -1,0 +1,318 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1.0" name="viewport">
+   <title>Calculator</title>
+   <style type="text/css">
+      * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+      }
+      #calc {
+          width: 100%;
+          height: 100vh;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding: 0 10px;
+      }
+      #content {
+         position: relative;
+          background: #2c302c;
+          padding: 25px 20px 20px;
+          border-radius: 10px;
+
+      }
+      #content .heading {
+         position: absolute;
+         top: 10px;
+      }
+      #content .heading h3 {
+          color: #fff;
+          text-transform: uppercase;
+          font-size: 16px;
+          margin-left: 8px;
+          margin-top: 4px;
+      }
+      #content form input {
+          border: 0;
+          outline: 0;
+          width: 50px;
+          height: 50px;
+          border-radius: 8px;
+          font-size: 15px;
+          margin: 6px;
+          cursor: pointer;
+          font-weight: bold;
+      }
+      #backspace {
+          background-color: rgb(237, 89, 30);
+          color: white;
+      }
+      #indecator-txt {
+         color: #317DEF;
+      }
+      #res {
+          padding: 10px;
+      }
+      #clear {
+          background-color: rgb(237, 89, 30);
+          color: white;
+      }
+      form #output {
+          display: flex;
+          justify-content: flex-end;
+          margin: 15px 0;
+      }
+      form #output input {
+          text-align: right;
+          flex: 1;
+          font-size: 25px;
+          font-weight: normal;
+      }
+   </style>
+</head>
+<body>
+   <div id="calc">
+      <div id="content">
+         <div class="heading">
+            <h3>Calculator</h3>
+         </div>
+         <form>
+            <div id="output">
+               <input type="text" id='res'>
+            </div>
+            <div class="btn">
+               <input type="button" value='AC' onclick="Clear()" id="clear">
+               <input type="button" value='←' onclick="Back()" id="backspace">
+               <input type="button" value='%' onclick="Solve('%')" id="indecator-txt">
+               <input type="button" value='/' onclick="Solve('/')" id="indecator-txt">
+               <br>
+               <input type="button" value='7' onclick="Solve('7')">
+               <input type="button" value='8' onclick="Solve('8')">
+               <input type="button" value='9' onclick="Solve('9')">
+               <input type="button" value='x' onclick="Solve('*')" id="indecator-txt">
+               <br>
+               <input type="button" value='4' onclick="Solve('4')">
+               <input type="button" value='5' onclick="Solve('5')">
+               <input type="button" value='6' onclick="Solve('6')">
+               <input type="button" value='-' onclick="Solve('-')" id="indecator-txt">
+               <br>
+               <input type="button" value='1' onclick="Solve('1')">
+               <input type="button" value='2' onclick="Solve('2')">
+               <input type="button" value='3' onclick="Solve('3')">
+               <input type="button" value='+' onclick="Solve('+')" id="indecator-txt">
+               <br>
+               <input type="button" value='00' onclick="Solve('00')">
+               <input type="button" value='0' onclick="Solve('0')">
+               <input type="button" value='.' onclick="Solve('.')">
+               <input type="button" value='=' onclick="Result()" id="indecator-txt">
+            </div>
+         </form>
+      </div>
+   </div>
+   <script type="text/javascript">
+      function Solve(val) {
+         var v = document.getElementById('res');
+         v.value += val;
+      }
+      function Result() {
+         var num1 = document.getElementById('res').value;
+         try {
+            var num2 = eval(num1.replace('x', '*'));
+            document.getElementById('res').value = num2;
+         } catch {
+            document.getElementById('res').value = 'Error';
+         }
+      }
+      function Clear() {
+         var inp = document.getElementById('res');
+         inp.value = '';
+      }
+      function Back() {
+         var ev = document.getElementById('res');
+         ev.value = ev.value.slice(0, -1);
+      }
+      document.addEventListener('keydown', function (event) {
+         const key = event.key;
+         const validKeys = '0123456789+-*/.%';
+         if (validKeys.includes(key)) {
+            Solve(key === '*' ? 'x' : key);
+         } else if (key === 'Enter') {
+            Result();
+         } else if (key === 'Backspace') {
+            Back();
+         } else if (key.toLowerCase() === 'c') {
+            Clear();
+         }
+      });
+   </script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1.0" name="viewport">
+   <title>Calculator</title>
+   <style type="text/css">
+      * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+      }
+      #calc {
+          width: 100%;
+          height: 100vh;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding: 0 10px;
+      }
+      #content {
+         position: relative;
+          background: #2c302c;
+          padding: 25px 20px 20px;
+          border-radius: 10px;
+      }
+      #content .heading {
+         position: absolute;
+         top: 10px;
+      }
+      #content .heading h3 {
+          color: #fff;
+          text-transform: uppercase;
+          font-size: 16px;
+          margin-left: 8px;
+          margin-top: 4px;
+      }
+      #content form input {
+          border: 0;
+          outline: 0;
+          width: 50px;
+          height: 50px;
+          border-radius: 8px;
+          font-size: 15px;
+          margin: 6px;
+          cursor: pointer;
+          font-weight: bold;
+      }
+      #backspace {
+          background-color: rgb(237, 89, 30);
+          color: white;
+      }
+      #indecator-txt {
+         color: #317DEF;
+      }
+      #res {
+          padding: 10px;
+      }
+      #clear {
+          background-color: rgb(237, 89, 30);
+          color: white;
+      }
+      form #output {
+          display: flex;
+          justify-content: flex-end;
+          margin: 15px 0;
+      }
+      form #output input {
+          text-align: right;
+          flex: 1;
+          font-size: 25px;
+          font-weight: normal;
+      }
+   </style>
+</head>
+<body>
+   <div id="calc">
+      <div id="content">
+         <div class="heading">
+            <h3>Calculator</h3>
+         </div>
+         <form>
+            <div id="output">
+               <input type="text" id='res'>
+            </div>
+            <div class="btn">
+               <input type="button" value='AC' onclick="Clear(); playSound()" id="clear">
+               <input type="button" value='←' onclick="Back(); playSound()" id="backspace">
+               <input type="button" value='%' onclick="Solve('%'); playSound()" id="indecator-txt">
+               <input type="button" value='/' onclick="Solve('/'); playSound()" id="indecator-txt">
+               <br>
+               <input type="button" value='7' onclick="Solve('7'); playSound()">
+               <input type="button" value='8' onclick="Solve('8'); playSound()">
+               <input type="button" value='9' onclick="Solve('9'); playSound()">
+               <input type="button" value='x' onclick="Solve('*'); playSound()" id="indecator-txt">
+               <br>
+               <input type="button" value='4' onclick="Solve('4'); playSound()">
+               <input type="button" value='5' onclick="Solve('5'); playSound()">
+               <input type="button" value='6' onclick="Solve('6'); playSound()">
+               <input type="button" value='-' onclick="Solve('-'); playSound()" id="indecator-txt">
+               <br>
+               <input type="button" value='1' onclick="Solve('1'); playSound()">
+               <input type="button" value='2' onclick="Solve('2'); playSound()">
+               <input type="button" value='3' onclick="Solve('3'); playSound()">
+               <input type="button" value='+' onclick="Solve('+'); playSound()" id="indecator-txt">
+               <br>
+               <input type="button" value='00' onclick="Solve('00'); playSound()">
+               <input type="button" value='0' onclick="Solve('0'); playSound()">
+               <input type="button" value='.' onclick="Solve('.'); playSound()">
+               <input type="button" value='=' onclick="Result(); playSound()" id="indecator-txt">
+            </div>
+         </form>
+      </div>
+   </div>
+
+   <!-- Add the audio element for the click sound -->
+   <audio id="click-sound" src="click-sound.mp3"></audio>
+
+   <script type="text/javascript">
+      function Solve(val) {
+         var v = document.getElementById('res');
+         v.value += val;
+      }
+      function Result() {
+         var num1 = document.getElementById('res').value;
+         try {
+            var num2 = eval(num1.replace('x', '*'));
+            document.getElementById('res').value = num2;
+         } catch {
+            document.getElementById('res').value = 'Error';
+         }
+      }
+      function Clear() {
+         var inp = document.getElementById('res');
+         inp.value = '';
+      }
+      function Back() {
+         var ev = document.getElementById('res');
+         ev.value = ev.value.slice(0, -1);
+      }
+
+      // Play sound function
+      function playSound() {
+         var sound = document.getElementById('click-sound');
+         sound.play();
+      }
+
+      document.addEventListener('keydown', function (event) {
+         const key = event.key;
+         const validKeys = '0123456789+-*/.%';
+         if (validKeys.includes(key)) {
+            Solve(key === '*' ? 'x' : key);
+         } else if (key === 'Enter') {
+            Result();
+         } else if (key === 'Backspace') {
+            Back();
+         } else if (key.toLowerCase() === 'c') {
+            Clear();
+         }
+         playSound();  // Play sound when key is pressed
+      });
+   </script>
+</body>
+</html>
